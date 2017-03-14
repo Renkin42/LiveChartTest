@@ -76,12 +76,18 @@
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint40 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.cpuCounter = new System.Diagnostics.PerformanceCounter();
+            this.ramCounter = new System.Diagnostics.PerformanceCounter();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cpuCounter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ramCounter)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
             // 
+            chartArea1.AxisX.LabelStyle.Enabled = false;
             chartArea1.Name = "ChartArea1";
+            chartArea2.AxisX.LabelStyle.Enabled = false;
             chartArea2.Name = "ChartArea2";
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.ChartAreas.Add(chartArea2);
@@ -139,7 +145,7 @@
             series2.Points.Add(dataPoint40);
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(399, 297);
+            this.chart1.Size = new System.Drawing.Size(625, 548);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -148,15 +154,28 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             // 
+            // cpuCounter
+            // 
+            this.cpuCounter.CategoryName = "Processor";
+            this.cpuCounter.CounterName = "% Processor Time";
+            this.cpuCounter.InstanceName = "_Total";
+            // 
+            // ramCounter
+            // 
+            this.ramCounter.CategoryName = "Memory";
+            this.ramCounter.CounterName = "% Committed Bytes In Use";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 326);
+            this.ClientSize = new System.Drawing.Size(649, 572);
             this.Controls.Add(this.chart1);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cpuCounter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ramCounter)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -165,6 +184,8 @@
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Timer timer1;
+        private System.Diagnostics.PerformanceCounter cpuCounter;
+        private System.Diagnostics.PerformanceCounter ramCounter;
     }
 }
 
