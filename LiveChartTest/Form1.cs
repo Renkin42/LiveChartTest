@@ -7,6 +7,7 @@ namespace LiveChartTest
     {
         private float[] cpuData = new float[20];
         private float[] ramData = new float[20];
+        private float threshold = 5.0f;
 
         public Form1()
         {
@@ -30,6 +31,11 @@ namespace LiveChartTest
             chart1.Series[1].Points.DataBindY(ramData);
             chart1.Series[0].LegendText = String.Format("CPU: {0:00.00}%", cpuData[19]);
             chart1.Series[1].LegendText = String.Format("RAM: {0:00.00}%", ramData[19]);
+
+            if (cpuData[19] > threshold)
+            {
+                textBox1.AppendText(String.Format("[{0:r}] CPU threshold exceeded: {1:00.00}%\n", System.DateTime.Now, cpuData[19]));
+            }
         }
     }
 }

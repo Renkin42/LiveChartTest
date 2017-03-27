@@ -78,6 +78,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.cpuCounter = new System.Diagnostics.PerformanceCounter();
             this.ramCounter = new System.Diagnostics.PerformanceCounter();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpuCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ramCounter)).BeginInit();
@@ -145,7 +146,7 @@
             series2.Points.Add(dataPoint40);
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(625, 548);
+            this.chart1.Size = new System.Drawing.Size(625, 254);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -165,11 +166,22 @@
             this.ramCounter.CategoryName = "Memory";
             this.ramCounter.CounterName = "% Committed Bytes In Use";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(80, 300);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(440, 234);
+            this.textBox1.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 572);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.chart1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -177,6 +189,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cpuCounter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ramCounter)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -186,6 +199,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Diagnostics.PerformanceCounter cpuCounter;
         private System.Diagnostics.PerformanceCounter ramCounter;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
